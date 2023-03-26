@@ -1,0 +1,11 @@
+[Unit]
+Description=dhttp proxy
+After=network.target
+After=upcn@.service
+
+[Service]
+ExecStart=/usr/bin/dhttp-proxy
+Type=simple
+
+[Install]
+WantedBy=default.target
