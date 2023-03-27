@@ -1,3 +1,5 @@
+#!/bin/env python3
+
 from server import UPCNServer
 from http.server import SimpleHTTPRequestHandler
 from os import path
@@ -5,7 +7,7 @@ import os
 
 class Handler(SimpleHTTPRequestHandler):
     def __init__(self, request, client_address, server) -> None:
-        super().__init__(request, client_address, server, directory=path.dirname(__file__)+"/content")
+        super().__init__(request, client_address, server, directory=".")
 
     def end_headers(self) -> None:
         self.send_header("Content-Location", self.path)
